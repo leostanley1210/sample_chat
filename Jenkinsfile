@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('GIT SCM') {
+        stage('checkout') {
             steps{
                 git credentialsId: 'ssh', url: 'git@github.com:leostanley1210/sample_chat.git'
             }
