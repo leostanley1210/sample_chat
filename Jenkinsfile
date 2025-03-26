@@ -1,11 +1,11 @@
 pipeline {
-    agent { label 'slave' } 
+    agent {lable 'slave'}
     tools {
         maven 'maven'
     }
 
     stages {
-        stage('GIT SCM') {
+        stage('checkout') {
             steps {
                 git 'https://github.com/leostanley1210/Chat_Room.git'
             }
