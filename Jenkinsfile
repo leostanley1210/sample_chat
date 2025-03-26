@@ -1,13 +1,15 @@
 pipeline {
-    agent {lable 'slave'}
+    
+     agent { label 'slave' } 
+
     tools {
         maven 'maven'
     }
 
     stages {
         stage('checkout') {
-            steps {
-                git 'https://github.com/leostanley1210/Chat_Room.git'
+            steps{
+                git credentialsId: 'ssh', url: 'git@github.com:leostanley1210/sample_chat.git'
             }
         }
     
