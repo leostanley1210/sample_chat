@@ -1,11 +1,10 @@
 pipeline {
     agent any
-
     tools {
-        jdk 'jdk17'
+    git 'DefaultGit'
+    jdk 'jdk11'
     }
-
-    stages {
+     stages {
         stage('Checkout') {
             steps {
                 git credentialsId: 'ssh-connection', url: 'git@github.com:leostanley1210/Chat_Room.git', branch: 'master'
