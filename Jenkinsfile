@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps{
-                git credentialsId: 'multi-branch-pipeline', url: 'git@github.com:leostanley1210/sample_chat.git'
+                git credentialsId: 'multi-pipeline', url: 'git@github.com:leostanley1210/sample_chat.git'
             }
         }
     
