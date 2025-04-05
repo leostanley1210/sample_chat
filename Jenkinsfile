@@ -1,29 +1,27 @@
 pipeline {
-    
-     agent { label 'slave' } 
+    agent any
 
     tools {
-        maven 'maven'
+        jdk 'jdk17'
     }
 
     stages {
-        stage('checkout') {
-            steps{
-                git credentialsId: 'multi-branch-pipeline', url: 'git@github.com:leostanley1210/sample_chat.git'
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'ssh-connection', url: 'git@github.com:leostanley1210/Chat_Room.git', branch: 'master'
             }
         }
-    
-        stage ('compile') {
+
+        stage('compile') {
             steps {
                 sh 'mvn compile'
             }
         }
-           
-        stage ('build') {
-            steps {
-                 sh 'mvn package'
-           }
-         }
-    }
 
-}         
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+}
