@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-    git 'DefaultGit'
+    git 'Default'
     jdk 'jdk17'
     }
      stages {
