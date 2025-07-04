@@ -1,8 +1,9 @@
-FROM maven AS build
+FROM node:18-alpine
+
 WORKDIR /app
 COPY . .
-RUN mvn install
 
-FROM openjdk:17-alpine
-COPY --from=build /app/target/chatroom-0.0.1-SNAPSHOT.jar app.jar 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+RUN npm install
+
+EXPOSE 3000
+CMD ["node", "app.js"]
