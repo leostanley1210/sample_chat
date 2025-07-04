@@ -14,7 +14,7 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t leostanley1210/chat-app:latest .'
+        sh 'docker build -t leostanely1210/chat-app:latest .'
       }
     }
 
@@ -23,7 +23,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
             sh '''
               echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-              docker push leostanley1210/chat-app:latest
+              docker push leostanely1210/chat-app:latest
             '''
         }
     }
